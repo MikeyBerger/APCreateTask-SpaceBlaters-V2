@@ -9,7 +9,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D RB;
     private Vector2 Movement;
     public float Speed;
+    public float Timer;
     public bool IsShooting;
+
+    IEnumerator StopShooting()
+    {
+        yield return new WaitForSeconds(Timer);
+        IsShooting = false;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +27,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (IsShooting)
+        {
+            StartCoroutine(StopShooting());
+        }
     }
 
     private void FixedUpdate()
