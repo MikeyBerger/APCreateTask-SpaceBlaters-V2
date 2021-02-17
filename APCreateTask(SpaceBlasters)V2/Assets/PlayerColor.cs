@@ -22,7 +22,7 @@ public class PlayerColor : MonoBehaviour
         {
             SR.color = Color.white;
         }
-        else if (PI.playerIndex == 0)
+        else if (PI.playerIndex == 1)
         {
             SR.color = Color.black;
         }
